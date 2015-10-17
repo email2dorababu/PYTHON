@@ -37,3 +37,44 @@ Geo-spatial development:
 The term Geo-spatial refers to information that is located on the Earth's surface using coordinates.
 Geo-spatial development is the process of writing computer programs that can access, manipulate, and display this type of information.
 Internally, geo-spatial data is represented as a series of coordinates, often in the form of latitude and longitude values. Additional attributes such as temperature, soil type, height, or the name of a landmark are also often present. There can be many thousands (or even millions) of data points for a single set of geo-spatial data. For example, the following outline of New Zealand consists of almost 12,000 individual data points:
+
+Because so much data is involved, it is common to store geo-spatial information within a database. A large part of this book will be concerned with how to store your geo-spatial information in a database, and how to access it efficiently.
+Geo-spatial data comes in many different forms. Different GIS (Geographical Information System) vendors have produced their own file formats over the years, and various organizations have also defined their own standards. It's often necessary to use a Python library to read files in the correct format when importing geo-spatial data into your database.
+
+Geo-spatial development
+
+The term Geo-spatial refers to information that is located on the Earth's surface using coordinates. This can include, for example, the position of a cell phone tower, the shape of a road, or the outline of a country:
+
+Geo-spatial data often associates some piece of information with a particular location. For example, here is a map of Afghanistan from the http://afghanistanelectiondata.org website showing the number of votes cast in each location in the 2009 elections:
+
+Geo-spatial development is the process of writing computer programs that can access, manipulate, and display this type of information.
+
+Internally, geo-spatial data is represented as a series of coordinates, often in the form of latitude and longitude values. Additional attributes such as temperature, soil type, height, or the name of a landmark are also often present. There can be many thousands (or even millions) of data points for a single set of geo-spatial data. For example, the following outline of New Zealand consists of almost 12,000 individual data points:
+
+Because so much data is involved, it is common to store geo-spatial information within a database. A large part of this book will be concerned with how to store your geo-spatial information in a database, and how to access it efficiently.
+
+Geo-spatial data comes in many different forms. Different GIS (Geographical Information System) vendors have produced their own file formats over the years, and various organizations have also defined their own standards. It's often necessary to use a Python library to read files in the correct format when importing geo-spatial data into your database.
+
+Unfortunately, not all geo-spatial data points are compatible.
+A projection is a way of representing the Earth's surface in two dimensions.
+ GIS, but for now just keep in mind that every piece of geo-spatial data has a projection associated with it.
+ To compare or combine two sets of geo-spatial data, it is often necessary to convert the data from one projection to another.
+ 
+ geo-spatial data can also be manipulated to solve various interesting problems. 
+ task of calculating the distance between two points, calculating the length of a road, or finding all data points within a given radius of a selected point.
+ 
+ Finally, geo-spatial data by itself is not very interesting. A long list of coordinates tells you almost nothing; it isn't until those numbers are used to draw a picture that you can make sense of it.
+ Drawing maps, placing data points onto a map, and allowing users to interact with maps are all important aspects of geo-spatial development.
+ ------------------------------------
+ Python Geospatial Development:
+ you have a database containing a range of geo-spatial data for San Francisco. This database might include geographical features, roads and the location of prominent buildings and other man-made features such as bridges, airports, and so on.
+ Such a database can be a valuable resource for answering various questions. For example:
+
+    What's the longest road in Sausalito?
+
+    How many bridges are there in Oakland?
+
+    What is the total area of the Golden Gate Park?
+
+    How far is it from Pier 39 to the Moscone Center?
+    -------------------------------------------------
