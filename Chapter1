@@ -3,3 +3,22 @@ Python has been used for writing web-based systems, desktop applications, games,
 
 It supports procedural programming to object-oriented programming and functional programming.
 Python is interpreted language. (interpreted vs compilation)
+
+Python is suitable for programming tasks varying from quick one-off scripts to building huge and complex systems.
+
+20 or 30 lines of code in Java can often be written in half a dozen lines of code in Python
+
+Python Standard Libraries make programming more efficient.
+These libraries make it easy to do things such as 
+converting date and time values, 
+manipulating strings, 
+downloading data from websites, 
+performing complex maths, 
+working with e-mail messages, 
+encoding and decoding data, 
+XML parsing, 
+data encryption, 
+file manipulation, 
+compressing and decompressing files, 
+working with databases—the list goes on. 
+What you can do with the Python Standard Libraries is truly amazing.
