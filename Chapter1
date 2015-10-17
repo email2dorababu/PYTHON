@@ -1,3 +1,4 @@
+https://www.packtpub.com/packtlib/book/Application%20Development/9781849511544/1/ch01lvl1sec09/Geo-spatial%20development
 Python is a modern, high-level language suitable for a wide variety of programming tasks.
 Python has been used for writing web-based systems, desktop applications, games, scientific programming, and even utilities and other higher-level parts of various operating systems.
 
@@ -22,3 +23,17 @@ file manipulation,
 compressing and decompressing files, 
 working with databases—the list goes on. 
 What you can do with the Python Standard Libraries is truly amazing.
+
+The Python Package Index (http://pypi.python.org) provides thousands of additional modules that you can download and install.
+many other systems provide python bindings to allow you to access them directly from within your programs.
+
+Note:Python 2.x is the most common version in use today, while the Python developers have been working for the past several years on a completely new, non-backwards-compatible version called Python 3. Eventually, Python 3 will replace Python 2.x, but at this stage most of the third-party libraries (including all the GIS tools we will be using) only work with Python 2.x. For this reason, we won't be using Python 3 in this book.
+
+Once you are familiar with the language itself and have used it a few times, you'll find it incredibly easy to write programs to solve various tasks. Rather than getting buried in a morass of type-definitions and low-level string manipulation, you can simply concentrate on what you want to achieve. You end up almost thinking directly in Python code. Programming in Python is straightforward, efficient and, dare I say it, fun.
+
+---------------------------------------------------
+
+Geo-spatial development:
+The term Geo-spatial refers to information that is located on the Earth's surface using coordinates.
+Geo-spatial development is the process of writing computer programs that can access, manipulate, and display this type of information.
+Internally, geo-spatial data is represented as a series of coordinates, often in the form of latitude and longitude values. Additional attributes such as temperature, soil type, height, or the name of a landmark are also often present. There can be many thousands (or even millions) of data points for a single set of geo-spatial data. For example, the following outline of New Zealand consists of almost 12,000 individual data points:
