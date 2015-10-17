@@ -78,3 +78,8 @@ A projection is a way of representing the Earth's surface in two dimensions.
 
     How far is it from Pier 39 to the Moscone Center?
     -------------------------------------------------
+Creating a geo-spatial mash-up:
+Mash-ups are applications that combine data and functionality from more than one source.
+
+The Google Maps API has been immensely popular in creating these types of mash-ups. However, Google Maps has some serious licensing and other limitations. It is not the only option—tools such as Mapnik, open layers, and MapServer, to name a few, also allow you to create mash-ups that overlay your own data onto a map.
+
