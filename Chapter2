@@ -16,3 +16,179 @@ In this chapter, we will look at:
 Core GIS concepts :
 --------------------
 Working with geo-spatial data is complicated because you are dealing with mathematical models of the Earth's surface. 
+the Earth is an oblate spheroid rather than a perfect sphere. 
+representing points, lines, and areas on the surface of the Earth is a rather complicated process.
+GIS concepts:
+
+Location:
+---------
+Locations represent points on the surface of the Earth.
+One of the most common ways to measure location is through the use of latitude and longitude coordinates. For example, my current location (as measured by a GPS receiver) is 38.167446 degrees south and 176.234436 degrees east.
+hink of the Earth as a hollow sphere with an axis drawn through its middle:
+See the pictures:
+
+Core GIS concepts
+
+Working with geo-spatial data is complicated because you are dealing with mathematical models of the Earth's surface. In many ways, it is easy to think of the Earth as a sphere on which you can place your data. That might be easy, but it isn't accurate—the Earth is an oblate spheroid rather than a perfect sphere. This difference, as well as other mathematical complexities we won't get into here, means that representing points, lines, and areas on the surface of the Earth is a rather complicated process.
+
+Let's take a look at some of the key GIS concepts you will become familiar with as you work with geo-spatial data.
+Location
+
+Locations represent points on the surface of the Earth. One of the most common ways to measure location is through the use of latitude and longitude coordinates. For example, my current location (as measured by a GPS receiver) is 38.167446 degrees south and 176.234436 degrees east. What do these numbers mean and how are they useful?
+
+Think of the Earth as a hollow sphere with an axis drawn through its middle:
+
+For any given point on the Earth's surface, you can draw a line that connects that point with the centre of the Earth, as shown in the following image:
+
+The point's latitude is the angle that this line makes in the north-south direction, relative to the equator:
+In the same manner, the point's longitude is the angle that this line makes in the east-west direction, relative to an arbitrary starting point (typically the location of the Royal Observatory at Greenwich, England):
+ latitudes and longitudes cover the entire Earth like this: see the fig
+ The horizontal lines, representing points of equal latitude, are called parallels, while the vertical lines, representing points of equal longitude, are called meridians. The meridian at zero longitude is often called the prime meridian. 
+ There are two things to remember when working with latitude and longitude values:
+     Western longitudes are generally negative, but you may find situations (particularly when dealing with US-specific data) where western longitudes are given as positive values.
+
+    The longitude values wrap around at the ±180 degrees point. That is, as you travel east, your longitude will go 177, 178, 179, 180, -179, -178, -177, and so on. This can make basic distance calculations rather confusing if you are doing them yourself rather than relying on a library to do the work for you.
+    A latitude and longitude value refers to what is called a geodetic location. A geodetic location identifies a precise point on the Earth's surface, regardless of what might be at that location. While much of the data we will be working with involves geodetic locations, there are other ways of describing a location which you may encounter. 
+    For example, a civic location is simply a street address, which is another perfectly valid (though less scientifically precise) way of defining a location. Similarly, jurisdictional locations include information about which governmental boundary (such as an electoral ward, borough, or city) the location is within.
+    -----------
+    Distance
+The distance between two points can be thought of in different ways. For example:
+
+    Angular Distance: This is the angle between two rays going out from the centre of the Earth through the two points:
+Linear Distance: This is what people typically mean when they talk of distance—how far apart two points on the Earth's surface are:
+Traveling Distance: Linear ("as the crow flies") distances are all very well, but very few people can fly like crows. Another useful way of measuring distance is to measure how far you would actually have to travel to get from one point to another, typically following a road or other obvious route:
+see the fig
+Because we are working with distances between points on the Earth's surface rather than points on a flat surface, we are actually using what is called the great circle distance. The great circle distance is the length of a semicircle going between two points on the surface of the earth, where the semicircle is centered around the middle of the earth:
+see the fig.
+It is relatively straightforward to calculate the great circle distance between any two points if you assume that the Earth is spherical; the Haversine formula is often used for this.
+
+Units
+
+In September 1999, the Mars Climate Orbiter reached the outer edges of the Martian atmosphere, after having traveled through space for 286 days and costing a total of $327 million to create. 
+As it approached its final orbit, a miscalculation caused it to fly too low, and the Orbiter was destroyed. The reason? The craft's thrusters were calculating force using imperial units, while the spacecraft's computer worked with metric units. The result was a disaster for NASA, and a pointed reminder of just how important it is to understand which units your data is in.
+Geo-spatial data can come in a variety of different units. Distances can be measured in metric and imperial, of course, but there are actually a lot of different ways in which a given distance can be measured. These include:
+
+    Millimeters
+
+    Centimeters
+
+    Inches
+
+    International feet
+
+    U.S. survey feet
+
+    Meters
+
+    Yards
+
+    Kilometers
+
+    International miles
+
+    U.S. survey (statute) miles
+
+    Nautical miles
+    Angular measurements can also be in different units: degrees or radians. Once again, you will often have to convert from one to the other.
+    Traditionally, longitude and latitude values have been written using "degrees, minutes, and seconds" notation, like this:
+
+176° 14' 4''
+
+Another possible way of writing these numbers is to use "degrees and decimal minutes" notation:
+
+176° 14.066'
+
+Finally, there is the "decimal degrees" notation:
+
+176.234436° 
+Another possible issue with longitude and latitude values is that the quadrant (east, west, north, south) can sometimes be given as a separate value rather than using positive or negative values. For example:
+
+176.234436° E
+
+Fortunately, all these conversions are relatively straightforward. But it is important to know which units, and in which format your data is in—your software may not crash a spacecraft, but it will produce some very strange and incomprehensible results if you aren't careful.
+----------
+Projections:
+Creating a two-dimensional map from the three-dimensional shape of the Earth is a process known as projection. A projection is a mathematical transformation that unwraps the three-dimensional shape of the Earth and places it onto a two-dimensional plane.
+Hundreds of different projections have been developed, but none of them are perfect. Indeed, it is mathematically impossible to represent the three-dimensional Earth's surface on a two-dimensional plane without introducing some sort of distortion; the trick is to choose a projection where the distortion doesn't matter for your particular use.
+There are three main groups of projections: cylindrical, conical, and azimuthal. Let's look at each of these briefly.
+
+Cylindrical:
+If you placed this lantern-Earth inside a paper cylinder, the candle would "project" the surface of the Earth onto the inside of the cylinder:
+You can then "unwrap" this cylinder to obtain a two-dimensional image of the Earth:
+see the fig
+ome of the main types of cylindrical projections include the Mercator Projection, the Equal-Area Cylindrical Projection, and the Universal Transverse Mercator Projection.
+Conic projections : Some of the more common types of conic projections include the Albers Equal-Area Projection, the Lambert Conformal Conic Projection, and the Equidistant Projection.
+Azimuthal projections
+
+An azimuthal projection involves projecting the Earth's surface directly onto a flat surface:
+see the fig
+azimuthal projections depict the Earth as it would be seen from space.
+
+Some of the main types of azimuthal projections include the Gnomonic Projection, the Lambert Equal-Area Azimuthal Projection, and the Orthographic Projection.
+------------------------
+Coordinate systems:
+Closely related to map projection is the concept of a coordinate system. There are two types of coordinate systems you will need to be familiar with: projected coordinate systems and unprojected coordinate systems.
+
+Latitude and longitude values are an example of an unprojected coordinate system. These are coordinates that directly refer to a point on the Earth's surface:
+Unprojected coordinates are useful because they can accurately represent a desired point on the Earth's surface, but they also make it very difficult to perform distance and other geo-spatial calculations.
+Projected coordinates, on the other hand, are coordinates that refer to a point on a two-dimensional map that represents the surface of the Earth:
+see figs
+For projected coordinate systems, you typically define an origin and the map units. Some coordinate systems also use false northing and false easting values to adjust the position of the origin,
+To give a concrete example, the Universal Transverse Mercator (UTM) coordinate system divides the world up into 60 different "zones", each zone using a different map projection to minimize projection errors. Within a given zone, the coordinates are measured as the number of meters away from the zone's origin, which is the intersection of the equator and the central meridian for that zone. 
+False northing and false easting values are then added to the distance in meters away from this reference point to avoid having to deal with negative numbers.
+--------------------------
+Datums:
+Roughly speaking, a datum is a mathematical model of the Earth used to describe locations on the Earth's surface. A datum consists of a set of reference points, often combined with a model of the shape of the Earth. The reference points are used to describe the location of other points on the Earth's surface, while the model of the Earth's shape is used when projecting the Earth's surface onto a two-dimensional plane. Thus, datums are used by both map projections and coordinate systems.
+There are three main reference datums that cover larger areas and which you are likely to encounter when working with geo-spatial data:
+NAD 27: This is the North American datum of 1927. 
+NAD 83: The North American datum of 1983.
+WGS 84 : The World geodetic system of 1984. This is a global datum covering the entire Earth. 
+It makes use of yet another model of the Earth's shape (the Earth Gravitational Model of 1996, EGM 96) and uses reference points based on the IERS International Reference Meridian. WGS 84 is a very popular datum. 
+When dealing with geo-spatial data covering the United States, WGS 84 is basically identical to NAD 83. WGS 84 also has the distinction of being used by Global Positioning System satellites, so all data captured by GPS units will use this datum.
+While WGS 84 is the most common datum in use today, a lot of geo-spatial data makes use of other datums. Whenever you are dealing with a coordinate value, it is important to know which datum was used to calculate that coordinate. 
+A given point in NAD 27, for example, may be several hundred feet away from that same coordinate expressed in WGS 84.
+-------------------------
+Shapes:
+Geo-spatial data often represents shapes in the form of points, paths, and outlines:
+A point, of course, is simply a coordinate, described by two or more numbers within a projected or unprojected coordinate system.
+
+A path is generally described using what is called a linestring:
+A linestring represents a path as a connected series of line segments.
+An outline is often represented in geo-spatial data using a polygon:
+As with linestrings, polygons are described as a connected series of line segments. The only difference is that the polygon is closed; that is, the last line segment finishes where the first line segment starts. Polygons are commonly used in geo-spatial data to describe the outline of countries, lakes, cities, and more.
+---------------------------------------
+
+GIS data formats:
+A GIS data format specifies how geo-spatial data is stored in a file (or multiple files) on disk. The format describes the logical structure used to store geo-spatial data within the file(s).
+A GIS data format will typically support:
+fetures, metadata,Attributes,Display information
+There are two main types of GIS data: raster format data and vector format data. 
+Raster formats are generally used to store bitmapped images, such as scanned paper maps or aerial photographs. Vector formats, on the other hand, represent spatial data using points, lines, and polygons. Vector formats are the most common type used by GIS applications as the data is smaller and easier to manipulate.
+Some of the more common raster formats include:
+
+    Digital Raster Graphic (DRG): This format is used to store digital scans of paper maps
+
+    Digital Elevation Model (DEM) : Used by the US Geological Survey to record elevation data
+
+    Band Interleaved by Line, Band Interleaved by Pixel, Band Sequential (BIL, BIP, BSQ): These data formats are typically used by remote sensing systems
+Some of the more common vector formats include:
+
+    Shapefile: An open specification, developed by ESRI, for storing and exchanging GIS data.
+    for example hawaii.shp, hawaii.shx, hawaii.dbf, and so on
+     Simple Features: An OpenGIS standard for storing geographical data (points, lines, polygons) along with associated attributes
+
+TIGER/Line: A text-based format previously used by the U.S. Census Bureau to describe geographic features such as roads, buildings, rivers, and coastlines.
+Coverage: A proprietary data format used by ESRI's ARC/INFO system
+
+In addition to these "major" data formats, there are also so-called micro-formats that are often used to represent individual pieces of geo-spatial data. 
+
+As you work with geo-spatial data, you are likely to encounter the following micro-formats:
+
+    Well-known Text (WKT): This is a simple text-based format for representing a single geographic feature such as a polygon or linestring
+
+    Well-known Binary (WKB): This alternative to WKT uses binary data rather than text to represent a single geographic feature
+
+    GeoJSON: An open format for encoding geographic data structures, based on the JSON data interchange format
+
+    Geography Markup Language (GML): An XML-based open standard for exchanging GIS data
+    Whenever you work with geo-spatial data, you need to know which format the data is in so that you can extract the information you need from the file(s), and where necessary transform the data from one format to another.
