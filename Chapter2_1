@@ -1,0 +1,45 @@
+https://www.packtpub.com/packtlib/book/Application%20Development/9781849511544/2/ch02lvl1sec15/Working%20with%20GIS%20data%20manually
+Working with GIS data manually:
+Before we can begin, there are two things you need to do:
+
+    Obtain some GIS data
+
+    Install the GDAL Python library so that you can read the necessary data files
+    Let's use the U.S. Census Bureau's website to download a set of vector maps for the various U.S. states. The main site for obtaining GIS data from the U.S. Census Bureau can be found at:
+
+http://www.census.gov/geo/www/tiger
+
+To make things simpler, though, let's bypass the website and directly download the file we need:
+
+http://www2.census.gov/geo/tiger/TIGER2009/tl_2009_us_state.zip 
+The resulting file, tl_2009_us_state.zip, should be a ZIP-format archive. After uncompressing the archive, you should have the following files:
+
+tl_2009_us_state.dbf
+tl_2009_us_state.prj
+tl_2009_us_state.shp
+tl_2009_us_state.shp.xml
+tl_2009_us_state.shx
+
+These files make up a Shpefile containing the outlines of all the U.S. states. Place these files together in a convenient directory.
+We next have to download the GDAL Python library. The main website for GDAL can be found at:
+
+http://gdal.org
+
+The easiest way to install GDAL onto a Windows or Unix machine is to use the FWTools installer, which can be downloaded from the following site:
+
+http://fwtools.maptools.org
+
+If you are running Mac OS X, you can find a complete installer for GDAL at:
+
+http://www.kyngchaos.com/software/frameworks 
+After installing GDAL, you can check that it works by typing import osgeo into the Python command prompt; if the Python command prompt reappears with no error message, GDAL was successfully installed and you are all set to go:
+
+>>> import osgeo
+
+Now that we have some data to work with, let's take a look at it. You can either type the following directly into the command prompt, or else save it as a Python script so you can run it whenever you wish (let's call this analyze.py):
+
+import osgeo.ogr
+seee the program
+This gives us a quick summary of how the Shapefile's data is structured:
+This shows us that the data we downloaded consists of one layer, with 56 individual features corresponding to the various states and protectorates in the U.S. It also tells us the "spatial reference" for this layer, which tells us that the coordinates are stored as latitude and longitude values, using the GRS80 ellipsoid and the NAD83 datum.
+
